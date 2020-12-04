@@ -1,0 +1,29 @@
+<template>
+  <div class="about">
+    <h1>This is an category page</h1>
+     {{titile}}
+ 		<ul>
+			<li v-for="(row,index) in categories" :key="index">{{row.name}}</li>
+		</ul>
+  </div>
+</template>
+<script type="text/javascript">
+	import Service from '@/service/Service.js'
+	export default{
+		props:{
+			title:String
+		},
+		data(){
+			return{
+			categories:null
+		}
+		},
+		created(){
+			Service.getCategories()
+				.then(response=>{
+				this.categories=response.data.categories
+			})
+		}
+	}
+</script>
+<style type="text/css"></style>
