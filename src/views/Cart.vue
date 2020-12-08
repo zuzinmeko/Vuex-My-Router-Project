@@ -55,7 +55,16 @@
           <button class="btn btn-outline-danger float-right" @click="checkout">Buy Now</button>
         </div>
       </div>
-    </section>
+    </section><br><br><br><br><br><br>
+    <div class="container my-5">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="inner-content">
+            <p>Copyright © 2020 zuzin: <a href="https://www.meko.com/">zuzinmeko.com</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   
 </template>
@@ -80,12 +89,12 @@
         //alert('ok')
         let notes=this.notes
         let ls=JSON.stringify(this.$store.state.cart)
-        let user_id=1
+        //let user_id=1
+        let user_id=this.$store.state.user.id
         Service.order(ls,notes,user_id)
           .then(response=>{
             console.log(response)
             localStorage.removeItem('cart')
-            // this.orderDone=1;
             this.$store.dispatch('setState')
             this.orderStatus=true
             //this.$router.push({name: 'Home'})
@@ -94,11 +103,9 @@
     },
     computed:{
       items(){
-        //this.$store.dispatch('setState')
         return this.$store.state.cart
       },
       total(){
-        //this.$store.dispatch('setState')
         return this.$store.state.cart.reduce((a, c) => (a + (c.price*c.qty)),0)
       }
     }

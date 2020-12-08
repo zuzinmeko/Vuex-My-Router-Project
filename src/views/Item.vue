@@ -23,7 +23,28 @@
   			<SingleItem :row="row"></SingleItem>
   		</div>
   	</div>
+  	<!-- <div class="inner-content">
+  		<p>Copyright © 2020 zuzin: <a href="https://www.meko.com/">zuzinmeko.com</a></p>
+  	</div> -->
+        <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="inner-content">
+  				<p>Copyright © 2020 zuzin: <a href="https://www.meko.com/">zuzinmeko.com</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
  </div>
+
+
+     
+      
+        
+            
+   
+    
+
 </template>
 <script type="text/javascript">
 	import Service from '@/service/Service.js'

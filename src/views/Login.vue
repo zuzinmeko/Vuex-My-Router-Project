@@ -52,8 +52,9 @@
         let password = this.password
         Service.login(email,password)
               .then(response => {
-                console.log(response.data)
+                //console.log(response.data)
                 this.$store.dispatch('storeToken',response.data.access_token)
+                this.$store.dispatch('getUser')
                 this.$router.push('/item')
               })
               .catch(err=>{

@@ -1,25 +1,5 @@
 <template>
 <div class="container">
-<!-- <div class="card mb-3">
-  <div class="row no-gutters">
-    <div class="col-md-4">
-      <img :src="item.photo" class="card-img" alt="img">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">Products Detail</h5>
-        <p class="card-text">{{item.name}}</p>
-        <p class="card-text"><del>{{item.price}}</del></p>
-        <p class="card-text">{{item.discount}}</p>
-        <p class="card-text">{{item.details}}</p>
-        <p class="card-text">{{item.codeno}}</p>
-          <p class="card-text">{{item.brand.name}}</p>
-            <p class="card-text">{{item.subcategory.category.name}} |{{item.subcategory.name}}</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
-  </div>
-</div> -->
 <div>
   <b-card no-body class="overflow-hidden my-3"  v-if="!loading">
     <b-row no-gutters>
@@ -53,7 +33,7 @@
     data(){
       return {
         qty:1,
-        loading: true,
+        //loading: true,
         item: Object
       }
     },
@@ -65,10 +45,9 @@
     created(){
       let id = this.$route.params.id;
       Service.getItemDetail(id)
-              .then(response => {
-                this.item = response.data.item
-                this.loading = false
-              })
+              .then(response => this.item = response.data.item
+                //this.loading = false
+              )
     },
     methods:{
       AddToCart(){
